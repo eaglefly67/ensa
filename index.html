@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ensara Company - Strategic Business Consulting</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .page-section {
+            display: none;
+        }
+        
+        .page-section.active {
+            display: block;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .case-study-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #3b82f6;
+        }
+        
+        .nav-link.active {
+            color: #1e3a8a;
+            font-weight: 600;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.3);
+        }
+        
+        .stats-counter {
+            color: #1e3a8a;
+            font-weight: 700;
+        }
+        
+        .blog-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .mobile-menu {
+            display: none;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold text-gray-900">The Ensara Company</h1>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block desktop-nav">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2" onclick="showPage('home')">Home</a>
+                        <div class="relative group">
+                            <a href="#" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2">Services</a>
+                            <div class="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                                <div class="py-2">
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50" onclick="showPage('business-strategy')">Business Strategy & Operations</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50" onclick="showPage('ma-advisory')">M&A Advisory & Exit Planning</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50" onclick="showPage('growth-strategy')">Growth Strategy & Expansion</a>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2" onclick="showPage('about')">About</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2" onclick="showPage('blog')">Blog</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2" onclick="showPage('contact')">Contact</a>
+                        <a href="#" class="cta-button text-white px-6 py-2 rounded-lg" onclick="showPage('contact')">Schedule Assessment</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-button text-gray-700 hover:text-blue-600 focus:outline-none focus:text-blue-600">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-menu md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-blue-600" onclick="showPage('home')">Home</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-blue-600" onclick="showPage('business-strategy')">Business Strategy & Operations</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-blue-600" onclick="showPage('ma-advisory')">M&A Advisory & Exit Planning</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-blue-600" onclick="showPage('growth-strategy')">Growth Strategy & Expansion</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-blue-600" onclick="showPage('about')">About</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-blue-600" onclick="showPage('blog')">Blog</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-blue-600" onclick="showPage('contact')">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page-section active">
+        <!-- Hero Section -->
+        <section class="hero-gradient text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        Transform Your Business with Strategic Excellence
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                        Expert consulting in business strategy, M&A advisory, and growth planning. 
+                        We help ambitious business owners unlock their next level of success.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#" class="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors" onclick="showPage('contact')">
+                            Schedule Strategic Assessment
+                        </a>
+                        <a href="#" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition-colors" onclick="showPage('about')">
+                            Learn More About Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Overview -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Practice Areas</h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                        Comprehensive strategic consulting services designed to accelerate your business growth
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="service-card bg-white p-8 rounded-lg shadow-lg border">
+                        <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-chess-king text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Business Strategy & Operations</h3>
+                        <p class="text-gray-600 mb-6">
+                            Transform your operations and strategic positioning to drive sustainable growth and competitive advantage.
+                        </p>
+                        <a href="#" class="text-blue-600 font-semibold hover:text-blue-800" onclick="showPage('business-strategy')">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card bg-white p-8 rounded-lg shadow-lg border">
+                        <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-handshake text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">M&A Advisory & Exit Planning</h3>
+                        <p class="text-gray-600 mb-6">
+                            Navigate complex transactions and strategic exits with expert guidance and proven methodologies.
+                        </p>
+                        <a href="#" class="text-blue-600 font-semibold hover:text-blue-800" onclick="showPage('ma-advisory')">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card bg-white p-8 rounded-lg shadow-lg border">
+                        <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-chart-line text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Growth Strategy & Expansion</h3>
+                        <p class="text-gray-600 mb-6">
+                            Scale your business strategically with data-driven growth planning and market expansion strategies.
+                        </p>
+                        <a href="#" class="text-blue-600 font-semibold hover:text-blue-800" onclick="showPage('growth-strategy')">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results & Stats -->
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Proven Results</h2>
+                    <p class="text-xl text-gray-600">Our clients achieve measurable success</p>
+                </div>
+                
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="stats-counter text-4xl font-bold mb-2">$3M+</div>
+                        <p class="text-gray-600">Deal Value Achieved</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="stats-counter text-4xl font-bold mb-2">5x</div>
+                        <p class="text-gray-600">Average ROI</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="stats-counter text-4xl font-bold mb-2">50+</div>
+                        <p class="text-gray-600">Successful Projects</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="stats-counter text-4xl font-bold mb-2">98%</div>
+                        <p class="text-gray-600">Client Satisfaction</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Case Study -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="case-study-card rounded-lg p-8 md:p-12">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                                $3M Screen Printing Business Acquisition
+                            </h3>
+                            <p class="text-gray-600 mb-6">
+                                Successfully guided a client through the complete acquisition of a screen printing business, 
+                                from initial due diligence through closing, resulting in a $3M transaction value.
+                            </p>
+                            <div class="flex items-center text-blue-600 font-semibold">
+                                <i class="fas fa-check-circle mr-2"></i>
+                                <span>Complete transaction management</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div class="bg-white p-6 rounded-lg shadow">
+                                <div class="text-2xl font-bold text-blue-600 mb-2">$3M</div>
+                                <p class="text-gray-600">Transaction Value</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow">
+                                <div class="text-2xl font-bold text-blue-600 mb-2">6 Months</div>
+                                <p class="text-gray-600">Project Duration</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="testimonial-card text-white p-8 rounded-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-600 font-bold mr-4">
+                                JS
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">John Smith</h4>
+                                <p class="text-blue-200">CEO, Manufacturing Company</p>
+                            </div>
+                        </div>
+                        <p class="text-lg">
+                            "The Ensara Company guided us through our most successful acquisition. Their expertise in M&A advisory was invaluable throughout the entire process."
+                        </p>
+                    </div>
+                    
+                    <div class="testimonial-card text-white p-8 rounded-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-600 font-bold mr-4">
+                                MJ
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Maria Johnson</h4>
+                                <p class="text-blue-200">Founder, Tech Startup</p>
+                            </div>
+                        </div>
+                        <p class="text-lg">
+                            "Their strategic guidance helped us scale from $1M to $5M in revenue within 18 months. Exceptional results and professional service."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-blue-900 text-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
+                <p class="text-xl mb-8">
+                    Schedule a strategic assessment to discuss your growth objectives and how we can help you achieve them.
+                </p>
+                <a href="#" class="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors" onclick="showPage('contact')">
+                    Schedule Your Strategic Assessment
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Business Strategy & Operations Page -->
+    <div id="business-strategy" class="page-section">
+        <section class="hero-gradient text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                        Business Strategy & Operations
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                        Transform your operations and strategic positioning to drive sustainable growth and competitive advantage
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Strategic Excellence in Operations</h2>
+                        <p class="text-gray-600 mb-6">
+                            Our business strategy and operations consulting helps you build a foundation for sustainable growth. 
+                            We work with you to optimize your operational efficiency while positioning your business for long-term success.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-blue-600 mr-3"></i>
+                                <span>Operational efficiency optimization</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-blue-600 mr-3"></i>
+                                <span>Strategic positioning and competitive analysis</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-blue-600 mr-3"></i>
+                                <span>Performance management systems</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-blue-600 mr-3"></i>
+                                <span>Process improvement and automation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4">Investment Overview</h3>
+                        <p class="text-gray-600 mb-4">
+                            Custom engagement designed for your specific operational needs and strategic objectives.
+                        </p>
+                        <p class="text-blue-600 font-semibold mb-6">
+                            ROI-focused pricing aligned with expected operational improvements
+                        </p>
+                        <a href="#" class="cta-button text-white px-6 py-3 rounded-lg block text-center" onclick="showPage('contact')">
+                            Schedule Strategic Assessment
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Case Study: Manufacturing Efficiency</h2>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-600 mb-2">40%</div>
+                            <p class="text-gray-600">Operational Cost Reduction</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-600 mb-2">2.5x</div>
+                            <p class="text-gray-600">Productivity Increase</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-600 mb-2">$1.2M</div>
+                            <p class="text-gray-600">Annual Savings</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mt-6 text-center">
+                        Helped a mid-size manufacturing company restructure their operations, resulting in significant cost savings and improved productivity.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- M&A Advisory & Exit Planning Page -->
+    <div id="ma-advisory" class="page-section">
+        <section class="hero-gradient text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                        M&A Advisory & Exit Planning
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                        Navigate complex transactions and strategic exits with expert guidance and proven methodologies
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Expert M&A Advisory</h2>
+                        <p class="text-gray-600 mb-6">
+                            Our M&A advisory services provide comprehensive support throughout the entire transaction lifecycle. 
+                            From initial strategy development to deal closure, we ensure you achieve optimal outcomes.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-blue-600 mr-3"></i>
+                                <span>Strategic buyer identification and outreach</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-blue-600 mr-3"></i>
+                                <span>Comprehensive due diligence management</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-blue-600 mr-3"></i>
+                                <span>Valuation analysis and negotiation support</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-blue-600 mr-3"></i>
+                                <span>Exit planning and wealth preservation strategies</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4">Investment Overview</h3>
+                        <p class="text-gray-600 mb-4">
+                            Investment varies by transaction complexity and deal value. We typically work on a success-fee structure.
+                        </p>
+                        <p class="text-blue-600 font-semibold mb-6">
+                            Fees aligned with successful transaction completion
+                        </p>
+                        <a href="#" class="cta-button text-white px-6 py-3 rounded-lg block text-center" onclick="showPage('contact')">
+                            Discuss Your Transaction
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Featured Success: $3M Screen Printing Acquisition</h2>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Complete Transaction Management</h3>
+                            <p class="text-gray-600 mb-4">
+                                Successfully guided a client through the complete acquisition of a screen printing business, 
+                                managing every aspect from initial due diligence through final closing.
+                            </p>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-blue-600 mr-3"></i>
+                                    <span>Comprehensive market analysis</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-blue-600 mr-3"></i>
+                                    <span>Financial due diligence</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-blue-600 mr-3"></i>
+                                    <span>Negotiation management</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-blue-600 mr-3"></i>
+                                    <span>Closing coordination</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-blue-50 p-6 rounded-lg text-center">
+                                <div class="text-2xl font-bold text-blue-600 mb-2">$3M</div>
+                                <p class="text-gray-600">Transaction Value</p>
+                            </div>
+                            <div class="bg-blue-50 p-6 rounded-lg text-center">
+                                <div class="text-2xl font-bold text-blue-600 mb-2">6 Months</div>
+                                <p class="text-gray-600">Project Duration</p>
+                            </div>
+                            <div class="bg-blue-50 p-6 rounded-lg text-center">
+                                <div class="text-2xl font-bold text-blue-600 mb-2">100%</div>
+                                <p class="text-gray-600">Success Rate</p>
+                            </div>
+                            <div class="bg-blue-50 p-6 rounded-lg text-center">
+                                <div class="text-2xl font-bold text-blue-600 mb-2">15%</div>
+                                <p class="text-gray-600">Above Market Value</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Growth Strategy & Expansion Page -->
+    <div id="growth-strategy" class="page-section">
+        <section class="hero-gradient text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                        Growth Strategy & Expansion
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                        Scale your business strategically with data-driven growth planning and market expansion strategies
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Strategic Growth Planning</h2>
+                        <p class="text-gray-600 mb-6">
+                            Our growth strategy consulting helps you identify and capitalize on the best opportunities for expansion. 
+                            We develop comprehensive growth plans that align with your resources and market conditions.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-blue-600 mr-3"></i>
+                                <span>Market opportunity analysis</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-blue-600 mr-3"></i>
+                                <span>Competitive positioning strategies</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-blue-600 mr-3"></i>
+                                <span>Revenue diversification planning</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-blue-600 mr-3"></i>
+                                <span>Geographic expansion strategies</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4">Investment Overview</h3>
+                        <p class="text-gray-600 mb-4">
+                            Growth strategy engagements are customized based on your expansion goals and market complexity.
+                        </p>
+                        <p class="text-blue-600 font-semibold mb-6">
+                            Our clients typically see 3-5x ROI on growth investments
+                        </p>
+                        <a href="#" class="cta-button text-white px-6 py-3 rounded-lg block text-center" onclick="showPage('contact')">
+                            Discuss Your Growth Goals
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Case Study: Boarding School Expansion</h2>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-600 mb-2">300%</div>
+                            <p class="text-gray-600">Revenue Growth</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-600 mb-2">5</div>
+                            <p class="text-gray-600">New Markets Entered</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-600 mb-2">18 Months</div>
+                            <p class="text-gray-600">Expansion Timeline</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mt-6 text-center">
+                        Developed and executed a comprehensive expansion strategy for a boarding school, resulting in successful market entry and significant revenue growth.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page-section">
+        <section class="hero-gradient text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                        About The Ensara Company
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                        Strategic consulting expertise built on proven results and deep industry knowledge
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
+                        <p class="text-gray-600 mb-6">
+                            The Ensara Company was founded with a simple mission: to help ambitious business owners unlock their next level of success. 
+                            Our approach combines deep strategic thinking with practical execution expertise.
+                        </p>
+                        <p class="text-gray-600 mb-6">
+                            With extensive experience in Entrepreneurship Through Acquisition (ETA), we understand the unique challenges 
+                            that business owners face when looking to grow, optimize, or exit their businesses.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-blue-600 mr-3"></i>
+                                <span>Expert in business acquisitions and exits</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-blue-600 mr-3"></i>
+                                <span>Proven track record of successful outcomes</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-blue-600 mr-3"></i>
+                                <span>Deep understanding of operational excellence</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4">Why Choose Ensara?</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-blue-600 mr-3 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold">ETA Expertise</h4>
+                                    <p class="text-gray-600">Deep experience in entrepreneurship through acquisition</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-blue-600 mr-3 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold">Proven Results</h4>
+                                    <p class="text-gray-600">Track record of successful transactions and growth initiatives</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-blue-600 mr-3 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold">Trusted Advisor</h4>
+                                    <p class="text-gray-600">Long-term partnership approach to client relationships</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Our Approach</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-search text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Discovery</h3>
+                        <p class="text-gray-600">
+                            We begin with a comprehensive assessment of your business, goals, and market position to understand your unique situation.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-lightbulb text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Strategy</h3>
+                        <p class="text-gray-600">
+                            We develop customized strategies that align with your objectives and market opportunities, backed by data and industry expertise.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-rocket text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Execution</h3>
+                        <p class="text-gray-600">
+                            We work alongside you to implement strategies, providing hands-on support and guidance throughout the process.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Blog Page -->
+    <div id="blog" class="page-section">
+        <section class="hero-gradient text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                        Insights & Resources
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                        Strategic insights, industry trends, and practical advice for business growth
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="blog-card bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600"></div>
+                        <div class="p-6">
+                            <div class="text-sm text-blue-600 mb-2">Strategy</div>
+                            <h3 class="text-xl font-semibold mb-3">The Ultimate Guide to Business Acquisitions</h3>
+                            <p class="text-gray-600 mb-4">
+                                Learn the essential steps and considerations for successful business acquisitions, from due diligence to closing.
+                            </p>
+                            <a href="#" class="text-blue-600 font-semibold hover:text-blue-800">Read More <i class="fas fa-arrow-right ml-2"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-48 bg-gradient-to-br from-green-400 to-green-600"></div>
+                        <div class="p-6">
+                            <div class="text-sm text-blue-600 mb-2">Growth</div>
+                            <h3 class="text-xl font-semibold mb-3">Scaling Your Business: A Strategic Approach</h3>
+                            <p class="text-gray-600 mb-4">
+                                Discover proven strategies for scaling your business efficiently while maintaining operational excellence.
+                            </p>
+                            <a href="#" class="text-blue-600 font-semibold hover:text-blue-800">Read More <i class="fas fa-arrow-right ml-2"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-48 bg-gradient-to-br from-purple-400 to-purple-600"></div>
+                        <div class="p-6">
+                            <div class="text-sm text-blue-600 mb-2">Operations</div>
+                            <h3 class="text-xl font-semibold mb-3">Optimizing Operations for Maximum Efficiency</h3>
+                            <p class="text-gray-600 mb-4">
+                                Practical tips and strategies for streamlining your operations and improving overall business performance.
+                            </p>
+                            <a href="#" class="text-blue-600 font-semibold hover:text-blue-800">Read More <i class="fas fa-arrow-right ml-2"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-48 bg-gradient-to-br from-red-400 to-red-600"></div>
+                        <div class="p-6">
+                            <div class="text-sm text-blue-600 mb-2">Exit Planning</div>
+                            <h3 class="text-xl font-semibold mb-3">Preparing Your Business for Exit</h3>
+                            <p class="text-gray-600 mb-4">
+                                Essential considerations and strategies for preparing your business for a successful exit or sale.
+                            </p>
+                            <a href="#" class="text-blue-600 font-semibold hover:text-blue-800">Read More <i class="fas fa-arrow-right ml-2"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-48 bg-gradient-to-br from-yellow-400 to-yellow-600"></div>
+                        <div class="p-6">
+                            <div class="text-sm text-blue-600 mb-2">M&A</div>
+                            <h3 class="text-xl font-semibold mb-3">Navigating the M&A Process</h3>
+                            <p class="text-gray-600 mb-4">
+                                A comprehensive guide to understanding and successfully navigating mergers and acquisitions.
+                            </p>
+                            <a href="#" class="text-blue-600 font-semibold hover:text-blue-800">Read More <i class="fas fa-arrow-right ml-2"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-48 bg-gradient-to-br from-teal-400 to-teal-600"></div>
+                        <div class="p-6">
+                            <div class="text-sm text-blue-600 mb-2">Leadership</div>
+                            <h3 class="text-xl font-semibold mb-3">Building High-Performance Teams</h3>
+                            <p class="text-gray-600 mb-4">
+                                Strategies for building and leading high-performance teams that drive business success.
+                            </p>
+                            <a href="#" class="text-blue-600 font-semibold hover:text-blue-800">Read More <i class="fas fa-arrow-right ml-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="#" class="cta-button text-white px-8 py-3 rounded-lg">
+                        View All Articles
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page-section">
+        <section class="hero-gradient text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                        Get In Touch
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                        Ready to discuss your business goals? Schedule a strategic assessment today.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Schedule Your Strategic Assessment</h2>
+                        <p class="text-gray-600 mb-8">
+                            During our consultation, we'll discuss your business objectives, current challenges, and potential opportunities for growth. 
+                            This initial assessment is designed to understand your unique situation and explore how we can help you achieve your goals.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-phone text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Phone</h3>
+                                    <p class="text-gray-600">(555) 123-4567</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Email</h3>
+                                    <p class="text-gray-600">info@ensaracompany.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-calendar text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Schedule Online</h3>
+                                    <p class="text-gray-600">Book directly through our calendar system</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-8 rounded-lg">
+                        <h3 class="text-2xl font-semibold mb-6">Contact Form</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Company</label>
+                                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Interest Area</label>
+                                <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option>Business Strategy & Operations</option>
+                                    <option>M&A Advisory & Exit Planning</option>
+                                    <option>Growth Strategy & Expansion</option>
+                                    <option>General Consultation</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                <textarea rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full cta-button text-white px-6 py-3 rounded-lg">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Ready to Get Started?</h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    Book your strategic assessment today and take the first step towards transforming your business.
+                </p>
+                <a href="#" class="cta-button text-white px-8 py-4 rounded-lg text-lg font-semibold">
+                    Schedule Your Assessment Now
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">The Ensara Company</h3>
+                    <p class="text-gray-400">
+                        Strategic business consulting for ambitious entrepreneurs and business owners.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" onclick="showPage('business-strategy')">Business Strategy</a></li>
+                        <li><a href="#" onclick="showPage('ma-advisory')">M&A Advisory</a></li>
+                        <li><a href="#" onclick="showPage('growth-strategy')">Growth Strategy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" onclick="showPage('about')">About Us</a></li>
+                        <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+                        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>(555) 123-4567</li>
+                        <li>info@ensaracompany.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 The Ensara Company. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation active state
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.mobile-menu').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDnGBh%2BC4B%2B2tLX6jKYxYpkA%2F5AGvoEzRPsPqDS78ttrt5yGKBdLbedGyfGJbso6Tu6rWdFNFEirs2%2FsH3fGfchpcXj6LX2ZiFIyP8Ha563C2AZOwQ%2F6O2DNc1IqhcPGU7GLEiMCBxY5ykQiMmfjKtnJk%2BOwmriNw7uImPk3DcpPvPk7usKckjLevIAC64D415xmV5tG%2F5n2KC2aDzCHiXWja8o9TYCkBFvyn2PRmE7AQ3xmNcNZk6uBSP2tustPS5ptpsFpr91SGUoe9oclX0L1YqNLyByaPH1cBNLz4J5eUWayX%2BEfwF4LRJKjxNGHOUFm21BjedNBceZa3Joyis22HGrrQlXbseLcIWeV0rMaOS9%2FQMyvH6dyjCNvGPEXeAxHisXPxKPD4OykF8HuUE2EJMkjhl%2BzPF%2FOsCdsFy2Gv%2BOJv8l%2BK8ulTq4UixAY3qM4%2FB1fZqU86afy634fbYd94zueGKpvAarYTuYRpG8PdwBBVNI0vX7M63azi4O36xQ%3D%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDnGBh+C4B+2tLX6jKYxYpkA/5AGvoEzRPsPqDS78ttrt5yGKBdLbedGyfGJbso6Tu6rWdFNFEirs2/sH3fGfchpcXj6LX2ZiFIyP8Ha563C2AZOwQ/6O2DNc1IqhcPGU7GLEiMCBxY5ykQiMmfjKtnJk+OwmriNw7uImPk3DcpPvPk7usKckjLevIAC64D415xmV5tG/5n2KC2aDzCHiXWja8o9TYCkBFvyn2PRmE7AQ3xmNcNZk6uBSP2tustPS5ptpsFpr91SGUoe9oclX0L1YqNLyByaPH1cBNLz4J5eUWayX+EfwF4LRJKjxNGHOUFm21BjedNBceZa3Joyis22HGrrQlXbseLcIWeV0rMaOS9/QMyvH6dyjCNvGPEXeAxHisXPxKPD4OykF8HuUE2EJMkjhl+zPF/OsCdsFy2Gv+OJv8l+K8ulTq4UixAY3qM4/B1fZqU86afy634fbYd94zueGKpvAarYTuYRpG8PdwBBVNI0vX7M63azi4O36xQ==";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    
